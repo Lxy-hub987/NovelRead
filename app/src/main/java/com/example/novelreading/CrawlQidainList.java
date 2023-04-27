@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CrawlQidainList {
-    List<HashMap<String, String>> list =new ArrayList<HashMap<String, String>>();
+    List<HashMap<String, String>> list = new ArrayList<>();
     int i=0;
     private String Url=null;
 
@@ -24,7 +24,7 @@ public class CrawlQidainList {
                 @Override
                 public void run() {
 
-                    Document doc = null;
+                    Document doc;
                     try {
                         doc = Jsoup.connect(Url).timeout(5000).userAgent("Mozilla/5.0").get();
                         Elements elements = doc.select("ul.all-img-list.cf");
@@ -38,6 +38,7 @@ public class CrawlQidainList {
                             Elements elements3 = element.select("div.book-mid-info");
                             // 书名
                             Elements elementstitle = elements3.select("h2");
+
                             hashMap.put("bookname", elementstitle.text());
                             //链接
                             Elements elements4 = elementstitle.select("a");
