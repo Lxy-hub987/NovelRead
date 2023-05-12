@@ -31,7 +31,7 @@ public class CrawlymoxuanContent {
                         String text1 = elements.toString();
                         Document d = Jsoup.parse(text1);
 //                        text = Jsoup.clean(d.toString(), "", Whitelist.none(), new Document.OutputSettings().prettyPrint(false));
-                        text = d.toString();
+                        text = d.text().replaceAll(" 　　", "\n　　");
 //                    text=elements.text();
                         hashMap.put("text", text);
                         Elements eetitle = doc.select("header.clearfix");

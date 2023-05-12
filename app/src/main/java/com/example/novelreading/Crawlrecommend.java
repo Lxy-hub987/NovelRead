@@ -41,11 +41,11 @@ public class Crawlrecommend {
                             HashMap<String, String> hashMap = new HashMap<>();
                             //图片
                             Elements elements2 = element.getElementsByTag("img");
-                            hashMap.put("imgsrc", "http:" + elements2.attr("src"));
+                            hashMap.put("imgsrc", "https:" + elements2.attr("src"));
 
                             Elements elements3 = element.select("div.book-mid-info");
                             // 书名
-                            Elements elementstitle = elements3.select("h4");
+                            Elements elementstitle = elements3.select("h2");
                             hashMap.put("bookname", elementstitle.text());
                             //链接
                             Elements elements4 = elementstitle.select("a");

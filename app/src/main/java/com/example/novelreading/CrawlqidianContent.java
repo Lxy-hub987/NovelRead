@@ -42,7 +42,7 @@ public class CrawlqidianContent {
                         String text1 = elements.toString();
                         Document d = Jsoup.parse(text1);
 //                        text = Jsoup.clean(d.toString(), "", Whitelist.none(), new Document.OutputSettings().prettyPrint(false));
-                        text = d.toString();
+                        text = d.text().replaceAll(" 　　", "\n　　");
                         hashMap.put("text",text);
                         Elements elements3=doc.select("div.chapter-control.dib-wrap");
                         Elements elements2=elements3.select("a");

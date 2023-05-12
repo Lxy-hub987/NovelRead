@@ -36,7 +36,10 @@ public class MainActivity extends ActivityGroup{
     private static final int REQUEST_CODE = 0;
     private static final String[] PERMISSIONS_STORAGE = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE };
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.INTERNET
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,11 +87,24 @@ public class MainActivity extends ActivityGroup{
         tabHost.addTab(tabSpec3);
     }
 
+//    private void verifyStoragePermissions() {
+//        // Check if we have write permission
+//        Log.i("权限", "权限检查");
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                !=PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+//                !=PackageManager.PERMISSION_GRANTED){
+//            Log.i("权限", "申请权限");
+//            ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, 1);
+//        }
+//    }
+
     private void verifyStoragePermissions() {
         // Check if we have write permission
         Log.i("权限", "权限检查");
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                !=PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                !=PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
+                !=PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE)
                 !=PackageManager.PERMISSION_GRANTED){
             Log.i("权限", "申请权限");
             ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, 1);

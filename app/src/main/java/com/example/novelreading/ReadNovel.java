@@ -16,6 +16,7 @@ import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class ReadNovel extends AppCompatActivity {
@@ -843,7 +845,7 @@ public class ReadNovel extends AppCompatActivity {
 
                         int line=t1.getMeasuredHeight();
                         SharedPreferences.Editor editor=sharedPreferences.edit();
-                        editor.putInt("height",line-69);
+                        editor.putInt("height",line-100);
                         editor.apply();
                     }
                 });
@@ -1154,6 +1156,7 @@ public class ReadNovel extends AppCompatActivity {
                     dir= new File(file, i + ".txt");
                     if(!dir.exists()&&flag2)
                     {
+                        Log.i("url", list.get(i).get("catalogueurl"));
                         if (f==1) {
                             h = selectcrawlmethod.selectmethod(list.get(i).get("catalogueurl"));
                             if(h.isEmpty())
@@ -1168,7 +1171,7 @@ public class ReadNovel extends AppCompatActivity {
                         }
                         else {
                             if(h.get("nexturl")!=null) {
-                                h = selectcrawlmethod.selectmethod(h.get("nexturl"));
+                                h = selectcrawlmethod.selectmethod(Objects.requireNonNull(h.get("nexturl")));
                                 if(h.get("text")!=null) {
                                     readAndWriteBook.writeBook(h.get("text"), String.valueOf(i));
                                 }

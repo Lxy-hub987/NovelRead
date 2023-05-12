@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Spac1">
 
     <LinearLayout
@@ -16,10 +17,11 @@
             android:background="#00000000"
             android:text="男生榜"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#000000"></LinearLayout>
+        android:background="#000000" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -50,7 +52,7 @@
                     android:button="@null"
                     android:layout_height="50dp"
                     android:textSize="15dp"
-                    android:text="点击榜"/>
+                    android:text="畅销榜"/>
                 <RadioButton
                     android:id="@+id/r3"
                     android:layout_width="fill_parent"

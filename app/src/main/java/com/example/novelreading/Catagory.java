@@ -47,20 +47,20 @@ public class Catagory extends AppCompatActivity {
         imageView[12]=(ImageView)findViewById(R.id.img13);
         imageView[13]=(ImageView)findViewById(R.id.img14);
 
-        String []imgsrc={"http://bookcover.yuewen.com/qdbimg/349573/1004608738/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1011408726/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1001827159/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1010327039/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/3602691/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1004593977/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1010539872/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1010136878/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1009480992/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1012223036/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1011449273/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1011335417/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1009817672/150",
-                "http://bookcover.yuewen.com/qdbimg/349573/1013365677/150"};
+        String []imgsrc={"https://bookcover.yuewen.com/qdbimg/349573/1004608738/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1011408726/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1001827159/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1010327039/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/3602691/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1004593977/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1010539872/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1010136878/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1009480992/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1012223036/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1011449273/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1011335417/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1009817672/150",
+                "https://bookcover.yuewen.com/qdbimg/349573/1013365677/150"};
 
         Bitmap [] bm=new Bitmap[imgsrc.length];
         for(int i=0;i<imgsrc.length;i++)

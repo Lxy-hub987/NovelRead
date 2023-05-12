@@ -3,6 +3,7 @@ package com.example.novelreading;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -38,6 +39,7 @@ public class SearchActivity extends AppCompatActivity {
     int page=1;
     List<HashMap< String, String>> list = new ArrayList< HashMap< String, String> >();
     List< HashMap< String, String> > list1 = new ArrayList< HashMap< String, String> >();
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,13 +70,16 @@ public class SearchActivity extends AppCompatActivity {
                 {
                     case SCROLL_STATE_IDLE:
                         int position = listView.getLastVisiblePosition();
-                        if (position == list.size() - 1 &&flag==0) {
-                            // 加载下一批数据
-                            page++;
-                            new LongTask().execute();
-                        } else if (position == list.size() - 1 &&flag==1) {
+                        if(position == list.size() - 1 ){
                             Toast.makeText(SearchActivity.this, "已经到底了", Toast.LENGTH_SHORT).show();
                         }
+//                        if (position == list.size() - 1 &&flag==0) {
+//                            // 加载下一批数据
+//                            page++;
+////                            new LongTask().execute();
+//                        } else if (position == list.size() - 1 &&flag==1) {
+//                            Toast.makeText(SearchActivity.this, "已经到底了", Toast.LENGTH_SHORT).show();
+//                        }
                         break;
                 }
             }

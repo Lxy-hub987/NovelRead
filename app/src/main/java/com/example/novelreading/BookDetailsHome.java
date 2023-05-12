@@ -10,18 +10,21 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class BookDetailsHome extends AppCompatActivity {
@@ -135,6 +138,19 @@ public class BookDetailsHome extends AppCompatActivity {
         }
 
         return bitmap;
+    }
+
+    public static byte[] getBytes(InputStream is) throws IOException {
+        ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024]; // 用数据装
+        int len = -1;
+        while ((len = is.read(buffer)) != -1) {
+            Log.i("ll", len+"");
+            outstream.write(buffer, 0, len);
+        }
+        outstream.close();
+        // 关闭流一定要记得。
+        return outstream.toByteArray();
     }
 
     public void readText(View view) {

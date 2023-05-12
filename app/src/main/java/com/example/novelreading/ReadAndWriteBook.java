@@ -15,18 +15,31 @@ public class ReadAndWriteBook {
     boolean flag=true;
     public ReadAndWriteBook(String name)
     {
-        if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+        if(isSDCARDMounted()){
             File root = Environment.getExternalStorageDirectory();
-            dir = new File(root.getAbsoluteFile() + "/Book/"+name);
+            dir = new File(root.getPath() + "/Book/"+name);
+            boolean b = false;
             if (!dir.exists()) {
-                dir.mkdirs();
+                b = dir.mkdirs();
             }
-            flag=true;
+            if(b){
+                flag = true;
+            }else {
+                flag=false;
+            }
         }
         else {
             flag=false;
         }
 
+    }
+
+    private boolean isSDCARDMounted() {
+        String status = Environment.getExternalStorageState();
+
+        if (status.equals(Environment.MEDIA_MOUNTED))
+            return true;
+        return false;
     }
     public void writeBook(String text,String num)
     {

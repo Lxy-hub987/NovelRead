@@ -173,7 +173,7 @@ public class Spac1 extends AppCompatActivity {
             }
             if(rgflag==2) {
                 if(list2.size()<=0) {
-                    list2.addAll(crawlrecommend.getcatalogue("https://www.qidian.com/rank/click?style=1&page="));
+                    list2.addAll(crawlrecommend.getcatalogue("https://www.qidian.com/rank/hotsales/page"));
                 }
             }
             if(rgflag==3) {

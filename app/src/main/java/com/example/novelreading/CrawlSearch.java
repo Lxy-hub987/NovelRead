@@ -15,11 +15,12 @@ import java.util.List;
 public class CrawlSearch {
 
     List<HashMap<String, String>> list =new ArrayList<HashMap<String, String>>();
-    String baseurl="https://www.qidian.com/search?kw=";
+    String baseurl1="https://www.qidian.com/so/";
+    String baseurl2=".html";
     private String Url=null;
     public List<HashMap<String, String>> getsearch(String searchinfo,int page)
     {
-        this.Url=baseurl+searchinfo+"&page="+page;
+        this.Url=baseurl1+searchinfo+baseurl2;
         final Thread t= new Thread() {
             @Override
             public void run() {
@@ -36,11 +37,11 @@ public class CrawlSearch {
                         HashMap<String,String> hashMap=new HashMap<>();
                         //图片
                         Elements elements2=element.getElementsByTag("img");
-                        hashMap.put("imgsrc","http:"+elements2.attr("src"));
+                        hashMap.put("imgsrc","https:"+elements2.attr("src"));
 
                         Elements elements3=element.select("div.book-mid-info");
                         // 书名
-                        Elements elementstitle=elements3.select("h4");
+                        Elements elementstitle=elements3.select("h3");
                         hashMap.put("bookname",elementstitle.text());
                         //链接
                         Elements elements4=elementstitle.select("a");

@@ -31,7 +31,7 @@ public class QidaintoYmoxuan {
                     {
                         Elements elements1=element.select("a");
                         if(elements1.text().trim().equals(bookname)) {
-                            url2="http:"+elements1.attr("href");
+                            url2="https:"+elements1.attr("href");
                             break;
                         }
                     }
@@ -66,7 +66,7 @@ public class QidaintoYmoxuan {
                     {
                         if(element.text().trim().equals("章节目录"))
                         {
-                            url3="http:"+element.attr("href");
+                            url3="https:"+element.attr("href");
                         }
                     }
                     geturl(title);
@@ -99,7 +99,7 @@ public class QidaintoYmoxuan {
                         Elements elements1=element.getElementsByTag("a");
                         if(elements1.text().trim().equals(title))
                         {
-                            url4="http:"+elements1.attr("href");
+                            url4="https:"+elements1.attr("href");
                             break;
                         }
                     }

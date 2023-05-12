@@ -39,7 +39,8 @@ public class CrawlWebDetils {
                         String src = null;
                         for (Element eimg : elementsimg) {
                             Elements elementsimg2 = eimg.getElementsByTag("img");
-                            src = "http:" + elementsimg2.attr("src");
+                            src = "https:" + elementsimg2.attr("src");
+                            break;
                         }
                         hashMap.put("src", src);
                         //小说链接
@@ -74,14 +75,17 @@ public class CrawlWebDetils {
                         //最新章节
                         Elements elementsnew1 = doc.select("li.update");
                         Elements elementsnew = elementsnew1.select("p.cf");
-                        Elements elementsnewchapter = elementsnew.select("a");
-                        String newchapter = elementsnewchapter.text();
-                        hashMap.put("newchapter", newchapter);
+                        for(Element element: elementsnew){
+                            Elements elementsnewchapter = element.select("a");
+                            String newchapter = elementsnewchapter.text();
+                            hashMap.put("newchapter", newchapter);
 
-                        //距离上一次更新时间
-                        Elements elementsuptime = elementsnew.select("em.time");
-                        String time = elementsuptime.text();
-                        hashMap.put("uptime", time + "更新");
+                            //距离上一次更新时间
+                            Elements elementsuptime = element.select("em.time");
+                            String time = elementsuptime.text();
+                            hashMap.put("uptime", time + "更新");
+                            break;
+                        }
 
 
                     } catch (IOException e) {
